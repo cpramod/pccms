@@ -1,0 +1,32 @@
+Options +FollowSymLinks
+
+# environment to set for codeigniter ( development, testing or production)
+SetEnv CI_ENV development
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+
+    RedirectMatch 404 /\.git
+
+	<Files .*>
+		Order Deny,Allow
+		Deny From All
+	</Files>
+
+	# non www to www redirect script
+	# RewriteCond %{HTTP_HOST} !^www\.(.*)
+ 	# RewriteRule (.*) http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule .* index.php/$0 [L]
+	
+	# Prevents access to dot files (.git, .htaccess) - security.
+	RewriteCond %{SCRIPT_FILENAME} -d
+	RewriteCond %{SCRIPT_FILENAME} -f
+	RewriteRule "(^|/)\." - [F]
+	
+</IfModule>
+Options -Indexes
