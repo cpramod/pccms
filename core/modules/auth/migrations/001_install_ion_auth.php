@@ -31,7 +31,7 @@ class Migration_Install_ion_auth extends CI_Migration {
 		$data = array(
 			array(
 				'id' => '1',
-				'name' => 'Dashboard',
+				'name' => 'admin',
 				'description' => 'Administrator'
 			),
 			array(
@@ -150,9 +150,9 @@ class Migration_Install_ion_auth extends CI_Migration {
 			'created_on' => '1268889823',
 			'last_login' => '1268889823',
 			'active' => '1',
-			'first_name' => 'Dashboard',
+			'first_name' => 'Admin',
 			'last_name' => 'istrator',
-			'company' => 'Dashboard',
+			'company' => 'Administrator',
 			'phone' => '0',
 		);
 		$this->db->insert('users', $data);
